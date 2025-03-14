@@ -236,7 +236,11 @@
       flex-wrap: wrap;
       padding: 10px;
   }
-  
+  input:focus {
+    font-size: 16px !important; /* Keep font size same to prevent zoom */
+    transform: scale(1) !important; /* Stop it from growing */
+}
+
   .card {
       max-width: 90%;
       padding: 25px;
@@ -256,6 +260,14 @@
   .input, .button {
       padding: 12px;
       font-size: 16px;
+  } /* Prevent the card from growing too much */
+  .card:focus-within {
+      transform: scale(1) !important;
+  }
+
+  /* Prevent scrolling on focus */
+  body {
+      overflow-y: hidden;
   }
 }
 
@@ -265,7 +277,11 @@
       flex-wrap: wrap;
       justify-content: center;
   }
-  
+  input:focus {
+    font-size: 16px !important; /* Keep font size same to prevent zoom */
+    transform: scale(1) !important; /* Stop it from growing */
+}
+
   .card {
       padding: 20px;
   }
@@ -286,5 +302,13 @@
   
   .result {
       padding: 12px;
+  } /* Prevent the card from growing too much */
+  .card:focus-within {
+      transform: scale(1) !important;
+  }
+
+  /* Prevent scrolling on focus */
+  body {
+      overflow-y: hidden;
   }
 }
