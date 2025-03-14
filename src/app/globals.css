@@ -173,6 +173,7 @@
     text-align: center;
     color: #2b6cb0;
     margin-bottom: 30px;
+    margin-right: 30px;
     font-family: 'Arial', sans-serif;
     animation: fadeIn 3s ease-out, bounce 1s infinite; /* Animations for fade and bounce */
     line-height: 1.4;
