@@ -1,26 +1,229 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #6e7f77, #f7fafc); /* Background Gradient */
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Centering the Card */
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('https://images.unsplash.com/photo-1506748686215-b174235fdd67?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=500&q=80') no-repeat center center fixed;
+    background-size: cover;
+    padding: 10px;
+  }
+  
+  /* Card Styles */
+  .card {
+    background-color: rgba(236, 236, 236, 0.9); /* Slightly opaque background */
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    backdrop-filter: blur(4px); /* Reduced blur effect */
+    text-align: center;
+    transition: transform 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    backdrop-filter: blur(6px); /* Slightly stronger blur on hover, but still subtle */
+  }
+  
+  /* Title Styling */
+  .title2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #2b6cb0;
+    letter-spacing: 1px;
+  }
+  
+  /* Input Styling */
+  .input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-bottom: 25px;
+    background-color: #f8f9fa;
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .input:focus {
+    outline: none;
+    border-color: #3182ce;
+    box-shadow: 0 0 10px rgba(137, 187, 235, 0.5);
+  }
+  
+  /* Button Styling */
+  .button {
+    width: 100%;
+    padding: 15px;
+    background-color: #3182ce;
+    color: white;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .button:hover {
+    background-color: #2b6cb0;
+    transform: translateY(-2px);
+  }
+  
+  .button:disabled {
+    background-color: #e2e8f0;
+    cursor: not-allowed;
+  }
+  
+  /* Result Container Styling */
+  .result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f7fafc;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease;
+  }
+  
+  .result:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .result-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .result-text {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+  }
+  
+  /* Error and Success Messages */
+  .result-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+  
+  .result-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+  
+  /* Spinner Animation */
+  .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Customizing the Button Color Variables */
+  :root {
+    --primary-color: #3182ce;
+    --secondary-color: #2b6cb0;
+    --background-color: #f7fafc;
+  }
+  
+  .button {
+    background-color: var(--primary-color);
+  }
+  
+  .button:hover {
+    background-color: var(--secondary-color);
+  }
+  /* Title styling */
+.title {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    color: #2b6cb0;
+    margin-bottom: 30px;
+    font-family: 'Arial', sans-serif;
+    animation: fadeIn 3s ease-out, bounce 1s infinite; /* Animations for fade and bounce */
+    line-height: 1.4;
+  }
+  
+  /* Animation for fading in the title */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Animation for bouncing effect */
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Adjusted title styling for better clarity */
+  .title span {
+    display: inline-block;
+    opacity: 0;
+    animation: reveal 5s forwards;
+    animation-delay: 1s;
+  }
+  
+  /* Animation for typing the text */
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Subtitle or description text if needed */
+  .subtitle {
+    font-size: 18px;
+    text-align: center;
+    color: #718096;
+    margin-top: 10px;
+  }
+  
