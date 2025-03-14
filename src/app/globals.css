@@ -227,20 +227,26 @@
     color: #718096;
     margin-top: 10px;
   }
-  /* Responsive Design */
+  /* 📱 Mobile Responsive Adjustments */
 @media screen and (max-width: 768px) {
   .container {
-      padding: 20px;
-      background-position: center;
+      flex-direction: row; /* 🔥 Make it a row layout on mobile */
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 10px;
   }
   
   .card {
       max-width: 90%;
       padding: 25px;
+      flex: 1;
   }
   
   .title {
       font-size: 24px;
+      text-align: left;
+      flex: 1;
   }
   
   .subtitle {
@@ -254,12 +260,19 @@
 }
 
 @media screen and (max-width: 480px) {
+  .container {
+      flex-direction: row; /* 🔥 Keep row layout on smaller screens */
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+  
   .card {
       padding: 20px;
   }
   
   .title {
       font-size: 22px;
+      text-align: center;
   }
   
   .subtitle {
