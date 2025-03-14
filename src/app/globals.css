@@ -227,4 +227,51 @@
     color: #718096;
     margin-top: 10px;
   }
+  /* Responsive Design */
+@media screen and (max-width: 768px) {
+  .container {
+      padding: 20px;
+      background-position: center;
+  }
   
+  .card {
+      max-width: 90%;
+      padding: 25px;
+  }
+  
+  .title {
+      font-size: 24px;
+  }
+  
+  .subtitle {
+      font-size: 16px;
+  }
+  
+  .input, .button {
+      padding: 12px;
+      font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+      padding: 20px;
+  }
+  
+  .title {
+      font-size: 22px;
+  }
+  
+  .subtitle {
+      font-size: 14px;
+  }
+  
+  .input, .button {
+      padding: 10px;
+      font-size: 14px;
+  }
+  
+  .result {
+      padding: 12px;
+  }
+}
